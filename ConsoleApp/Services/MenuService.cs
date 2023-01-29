@@ -6,7 +6,7 @@ namespace ConsoleApp.Services;
 
 internal class MenuService
 {
-    private List<IContact> contacts = new();
+    private List<Contact> contacts = new();
     private readonly FileService file = new();
 
     public string FilePath { get; set; } = null!;
@@ -15,7 +15,7 @@ internal class MenuService
     {
         try
         {
-            var items = JsonConvert.DeserializeObject<List<IContact>>(file.Read(FilePath));
+            var items = JsonConvert.DeserializeObject<List<Contact>>(file.Read(FilePath));
             if (items != null)
                 contacts = items;
         }
@@ -49,7 +49,7 @@ internal class MenuService
         Console.Clear();
         Console.WriteLine("Skapa en kontakt");
 
-        IContact contact = new Contact();
+        Contact contact = new();
 
         Console.Write("Ange Förnamn: ");
         contact.FirstName = Console.ReadLine() ?? "";
@@ -73,10 +73,14 @@ internal class MenuService
     private void OptionTwo()
     {
         Console.Clear();
+        Console.WriteLine("Alla kontakter:");
         foreach (Contact contact in contacts)
         {
             Console.WriteLine($"{contact.FirstName} {contact.LastName} {contact.Email}");
         }
+        Console.WriteLine("\n");
+        Console.Write("Tryck på valfri tangent för att gå tillbaka...");
+        Console.ReadKey();
     }
 
     private void OptionThree()
