@@ -22,8 +22,6 @@ internal class MenuService
         catch { }
     }
 
-    }
-
     public void WelcomeMenu()
     {
         //PopulateContactsList();
