@@ -66,7 +66,7 @@ internal class MenuService
         Console.Write("Ange Adress: ");
         contact.Address = Console.ReadLine() ?? "";
 
-        
+
         contacts.Add(contact);
     }
 
