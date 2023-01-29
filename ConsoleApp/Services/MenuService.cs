@@ -1,12 +1,13 @@
 ﻿using ConsoleApp.Interfaces;
 using ConsoleApp.Models;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace ConsoleApp.Services;
 
 internal class MenuService
 {
-    private List<Contact> contacts = new();
+    private ObservableCollection<Contact> contacts = new();
     private readonly FileService file = new();
 
     public string FilePath { get; set; } = null!;
@@ -15,7 +16,7 @@ internal class MenuService
     {
         try
         {
-            var items = JsonConvert.DeserializeObject<List<Contact>>(file.Read(FilePath));
+            var items = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(file.Read(FilePath));
             if (items != null)
                 contacts = items;
         }
