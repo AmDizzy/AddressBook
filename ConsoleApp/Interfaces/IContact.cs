@@ -8,5 +8,4 @@ internal interface IContact
     string Email { get; set; }
     string PhoneNumber { get; set; }
     string Address { get; set; }
-    string DisplayName => $"{FirstName} {LastName}";
 }
