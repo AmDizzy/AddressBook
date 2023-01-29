@@ -24,7 +24,7 @@ internal class MenuService
 
     public void WelcomeMenu()
     {
-        //PopulateContactsList();
+        PopulateContactsList();
         Console.Clear();
         Console.WriteLine("Välkommen till Adressboken");
         Console.WriteLine("1. Skapa en kontakt");
