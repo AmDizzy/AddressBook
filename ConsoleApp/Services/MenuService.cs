@@ -7,12 +7,25 @@ namespace ConsoleApp.Services;
 internal class MenuService
 {
     private List<IContact> contacts = new();
-    private FileService file = new();
+    private readonly FileService file = new();
 
-    
+    public string FilePath { get; set; } = null!;
+
+    private void PopulateContactsList()
+    {
+        try
+        {
+            var items = JsonConvert.DeserializeObject<List<IContact>>(file.Read(FilePath));
+            if (items != null)
+                contacts = items;
+        }
+        catch { }
+
+    }
 
     public void WelcomeMenu()
     {
+        PopulateContactsList();
         Console.Clear();
         Console.WriteLine("Välkommen till Adressboken");
         Console.WriteLine("1. Skapa en kontakt");
@@ -29,15 +42,7 @@ internal class MenuService
             case "3": OptionThree(); break;
             case "4": OptionFour(); break;
         }
-        file.Save(FilePath, JsonConvert.SerializeObject(new { contacts }));
-
-        try
-        {
-            var items = JsonConvert.DeserializeObject<List<IContact>>(file.Read());
-            if (items != null)
-                contacts = items;
-        }
-        catch { }
+        file.Save(FilePath, JsonConvert.SerializeObject(contacts));
     }
 
     private void OptionOne()
