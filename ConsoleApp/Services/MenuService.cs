@@ -91,6 +91,28 @@ internal class MenuService
 
     private void OptionFour()
     {
+        Console.Clear();
+        Console.WriteLine("Radera en kontakt");
+        var i = 0;
+        foreach (Contact contact in contacts)
+        {
+            
+            Console.WriteLine($"{i}. {contact.FirstName} {contact.LastName} {contact.Email}");
+            i++;
+        }
+        Console.WriteLine("\n");
+        Console.Write("Välj kontakten du vill ta bort t.ex. 1: ");
+        try
+        {
+            int option = Convert.ToInt32(Console.ReadLine());
+            var contact = contacts[option];
+            Console.WriteLine($"Kontakten {contact.FirstName} {contact.LastName} {contact.Email} {contact.PhoneNumber} {contact.Address} raderades.");
+            contacts.RemoveAt(option);
+        }
+        catch { Console.WriteLine("Kunde inte radera kontakten."); }
 
+        Console.WriteLine("\n");
+        Console.Write("Tryck på valfri tangent för att gå tillbaka...");
+        Console.ReadKey();
     }
 }
