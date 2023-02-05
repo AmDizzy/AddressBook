@@ -1,6 +1,7 @@
-﻿using ConsoleApp.Interfaces;
+﻿using System;
+using WpfApp.Interfaces;
 
-namespace ConsoleApp.Models;
+namespace WpfApp.Models;
 
 internal class Contact : IContact
 {
@@ -12,4 +13,6 @@ internal class Contact : IContact
     public string StreetAdress { get; set; } = null!;
     public string PostalCode { get; set; } = null!;
     public string City { get; set; } = null!;
+    public string Address => $"{StreetAdress}, {PostalCode} {City}";
+    public string DisplayName => $"{FirstName} {LastName}";
 }

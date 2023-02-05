@@ -1,7 +1,9 @@
-﻿using ConsoleApp.Services;
+﻿using ConsoleApp.Interfaces;
+using ConsoleApp.Models;
+using ConsoleApp.Services;
 
 var menu = new MenuService();
-menu.FilePath = @$"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
+menu.FilePath = @$"{AppDomain.CurrentDomain.BaseDirectory}\content.json";
 
 
 Console.Clear();

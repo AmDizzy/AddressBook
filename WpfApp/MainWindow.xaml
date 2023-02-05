@@ -1,0 +1,73 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:WpfApp.Controls"
+        xmlns:models="clr-namespace:WpfApp.Models"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- SIDEBAR NAVMENU -->
+        <ListBox Grid.Column="0" Name="lbox_NavMenu" SelectionMode="Single" BorderThickness="0" SelectionChanged="lbox_NavMenu_SelectionChanged">
+            <controls:NavButton Margin="3" Padding="6" NavLink="/Pages/Todos.xaml" Icon="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" />
+            <controls:NavButton Margin="3" Padding="6" NavLink="/Pages/Contacts.xaml" Icon="M13.07 10.41A5 5 0 0 0 13.07 4.59A3.39 3.39 0 0 1 15 4A3.5 3.5 0 0 1 15 11A3.39 3.39 0 0 1 13.07 10.41M5.5 7.5A3.5 3.5 0 1 1 9 11A3.5 3.5 0 0 1 5.5 7.5M7.5 7.5A1.5 1.5 0 1 0 9 6A1.5 1.5 0 0 0 7.5 7.5M16 17V19H2V17S2 13 9 13 16 17 16 17M14 17C13.86 16.22 12.67 15 9 15S4.07 16.31 4 17M15.95 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13Z" />
+        </ListBox>
+
+        <Frame Grid.Column="1" Name="frame_PageFrame" NavigationUIVisibility="Hidden" />
+
+        <!-- FORM -->
+        <!--<Grid Grid.Column="2" Margin="0 0 30 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Förnamn" />
+                <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="Efternamn" />
+                <TextBox Name="tb_LastName" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="E-postadress" />
+                <TextBox Name="tb_Email" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="Telefonnummer" />
+                <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="Gatuadress" />
+                <TextBox Name="tb_StreetAdress" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="Postnummer" />
+                <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 0 10" />
+                
+                <TextBlock Text="Ort" />
+                <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" />
+                
+            </StackPanel>
+
+            <Button Name="Btn_Add" Click="Btn_Add_Click" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" />
+
+        </Grid>-->
+        
+        <!-- LIST OF CONTACTS -->
+        <!--<ListView Grid.Column="1" Name="lv_Contacts" Margin="0 0 30 0">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:Contact">
+                    <StackPanel Margin="0 5 0 5">
+                        <TextBlock FontWeight="Bold" Text="{Binding DisplayName}" />
+                        <TextBlock Text="{Binding Email}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        
+    </Grid>
+</Window>

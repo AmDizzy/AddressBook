@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp.Interfaces;
+﻿using System;
+
+namespace WpfApp.Interfaces;
 
 internal interface IContact
 {
@@ -10,6 +12,4 @@ internal interface IContact
     string StreetAdress { get; set; }
     string PostalCode { get; set; }
     string City { get; set; }
-    string Address => $"{StreetAdress}, {PostalCode} {City}";
-    string DisplayName => $"{FirstName} {LastName}";
 }

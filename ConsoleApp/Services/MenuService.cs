@@ -25,6 +25,7 @@ internal class MenuService
 
     public void WelcomeMenu()
     {
+
         PopulateContactsList();
         Console.Clear();
         Console.WriteLine("Välkommen till Adressboken");
@@ -65,8 +66,14 @@ internal class MenuService
         Console.Write("Ange Telefonnummer: ");
         contact.PhoneNumber = Console.ReadLine() ?? "";
 
-        Console.Write("Ange Adress: ");
-        contact.Address = Console.ReadLine() ?? "";
+        Console.Write("Ange Gatuadress: ");
+        contact.StreetAdress = Console.ReadLine() ?? "";
+
+        Console.Write("Ange Postnummer: ");
+        contact.PostalCode = Console.ReadLine() ?? "";
+
+        Console.Write("Ange Ort: ");
+        contact.City = Console.ReadLine() ?? "";
 
 
         contacts.Add(contact);
@@ -76,9 +83,9 @@ internal class MenuService
     {
         Console.Clear();
         Console.WriteLine("Alla kontakter:");
-        foreach (Contact contact in contacts)
+        foreach (IContact contact in contacts)
         {
-            Console.WriteLine($"{contact.FirstName} {contact.LastName} {contact.Email}");
+            Console.WriteLine($"{contact.DisplayName} {contact.Email}");
         }
         Console.WriteLine("\n");
         Console.Write("Tryck på valfri tangent för att gå tillbaka...");
@@ -91,10 +98,9 @@ internal class MenuService
         Console.WriteLine("Visa en specifik kontakt:");
         Console.WriteLine("\n");
         var i = 0;
-        foreach (Contact contact in contacts)
+        foreach (IContact contact in contacts)
         {
-
-            Console.WriteLine($"{i}. {contact.FirstName} {contact.LastName} {contact.Email}");
+            Console.WriteLine($"{i}. {contact.DisplayName} {contact.Email}");
             i++;
         }
         Console.WriteLine("\n");
@@ -102,7 +108,7 @@ internal class MenuService
         try
         {
             int option = Convert.ToInt32(Console.ReadLine());
-            var contact = contacts[option];
+            IContact contact = contacts[option];
             Console.Clear();
             Console.WriteLine($"Förnamn: {contact.FirstName}");
             Console.WriteLine($"Efternamn: {contact.LastName}");
@@ -126,10 +132,10 @@ internal class MenuService
         Console.WriteLine("Radera en kontakt:");
         Console.WriteLine("\n");
         var i = 0;
-        foreach (Contact contact in contacts)
+        foreach (IContact contact in contacts)
         {
             
-            Console.WriteLine($"{i}. {contact.FirstName} {contact.LastName} {contact.Email}");
+            Console.WriteLine($"{i}. {contact.DisplayName} {contact.Email} {contact.PhoneNumber} {contact.Address}");
             i++;
         }
         Console.WriteLine("\n");
@@ -137,9 +143,11 @@ internal class MenuService
         try
         {
             int option = Convert.ToInt32(Console.ReadLine());
-            var contact = contacts[option];
+            IContact contact = contacts[option];
             Console.Clear();
-            Console.WriteLine($"Kontakten {contact.FirstName} {contact.LastName} {contact.Email} {contact.PhoneNumber} {contact.Address} är vald.");
+            Console.WriteLine("Vald kontakt:");
+            Console.WriteLine($"{contact.DisplayName} {contact.Email} {contact.PhoneNumber} {contact.Address}");
+            Console.WriteLine("\n");
             Console.Write("Är du säker på att du vill radera kontakten? (y/n): ");
             var confirm = Console.ReadLine()?.ToLower();
             if (confirm == "y")
