@@ -16,8 +16,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
-            <Button Command="{Binding GoToFrontPageCommand}" Content="&#xf044;" Style="{StaticResource navButton}" />
-            <Button Command="{Binding GoToTodosCommand}" Content="&#xf500;" Style="{StaticResource navButton}" />
+            <Button Command="{Binding GoToFrontPageCommand}" Content="&#xf500;" Style="{StaticResource navButton}" />
+            <Button Command="{Binding GoToTodosCommand}" Content="&#xf044;" Style="{StaticResource navButton}" />
         </StackPanel>
 
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
