@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp", "WpfApp\WpfApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp_MVVM", "WpfApp_MVVM\WpfApp_MVVM.csproj", "{C046D646-58C2-407E-A7FC-3F27B285C3FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Tests_MSTest", "ConsoleApp.Tests_MSTest\ConsoleApp.Tests_MSTest.csproj", "{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C046D646-58C2-407E-A7FC-3F27B285C3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C046D646-58C2-407E-A7FC-3F27B285C3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C046D646-58C2-407E-A7FC-3F27B285C3FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
