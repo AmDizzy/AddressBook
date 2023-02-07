@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp", "WpfApp\WpfApp.csproj", "{7F930042-1C49-452E-AD8A-97BCA16ED669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp_MVVM", "WpfApp_MVVM\WpfApp_MVVM.csproj", "{C046D646-58C2-407E-A7FC-3F27B285C3FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp_MVVM", "WpfApp_MVVM\WpfApp_MVVM.csproj", "{C046D646-58C2-407E-A7FC-3F27B285C3FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Tests_MSTest", "ConsoleApp.Tests_MSTest\ConsoleApp.Tests_MSTest.csproj", "{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp.Tests_MSTest", "ConsoleApp.Tests_MSTest\ConsoleApp.Tests_MSTest.csproj", "{13A9538E-A3E1-499C-B393-5C94D9C7CBE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

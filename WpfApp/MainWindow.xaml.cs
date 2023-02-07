@@ -35,18 +35,18 @@ public partial class MainWindow : Window
         //PopulateContactsList();
     }
 
-    private void PopulateContactsList()
-    {
-        try
-        {
-            var items = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(file.Read());
-            if (items != null)
-                contacts = items;
-        }
-        catch { }
+    //private void PopulateContactsList()
+    //{
+    //    try
+    //    {
+    //        var items = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(file.Read());
+    //        if (items != null)
+    //            contacts = items;
+    //    }
+    //    catch { }
 
-        lv_Contacts.ItemsSource = contacts;
-    }
+    //    lv_Contacts.ItemsSource = contacts;
+    //}
 
     //private void Btn_Add_Click(object sender, RoutedEventArgs e)
     //{
