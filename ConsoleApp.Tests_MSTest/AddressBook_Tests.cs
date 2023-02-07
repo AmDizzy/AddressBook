@@ -14,7 +14,6 @@ public class Addressbook_Tests
         MenuService menuService = new();
         Contact contact = new();
 
-
         //Act
         menuService.contacts.Add(contact);
 
