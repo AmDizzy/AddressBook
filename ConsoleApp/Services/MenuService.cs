@@ -5,9 +5,9 @@ using System.Collections.ObjectModel;
 
 namespace ConsoleApp.Services;
 
-internal class MenuService
+public class MenuService
 {
-    private ObservableCollection<Contact> contacts = new();
+    public ObservableCollection<Contact> contacts = new();
     private readonly FileService file = new();
 
     public string FilePath { get; set; } = null!;
