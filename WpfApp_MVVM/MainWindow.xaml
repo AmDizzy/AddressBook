@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:WpfApp_MVVM.MVVM.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
@@ -17,7 +17,8 @@
 
         <StackPanel Grid.Column="0">
             <Button Command="{Binding GoToFrontPageCommand}" Content="&#xf500;" Style="{StaticResource navButton}" />
-            <Button Command="{Binding GoToTodosCommand}" Content="&#xf044;" Style="{StaticResource navButton}" />
+            <Button Command="{Binding GoToAddContactPageCommand}" Content="&#xf234;" Style="{StaticResource navButton}" />
+            <Button Command="{Binding GoToEditContactPageCommand}" Content="&#xf4ff;" Style="{StaticResource navButton}" />
         </StackPanel>
 
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
@@ -25,8 +26,11 @@
                 <DataTemplate DataType="{x:Type viewmodels:FrontPageViewModel}">
                     <views:FrontPageView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:TodosViewModel}">
-                    <views:TodosView />
+                <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
+                    <views:AddContactView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
+                    <views:EditContactView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

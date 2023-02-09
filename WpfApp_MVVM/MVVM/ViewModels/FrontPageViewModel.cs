@@ -1,24 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using WpfApp_MVVM.Models;
+using WpfApp_MVVM.Services;
 
 namespace WpfApp_MVVM.MVVM.ViewModels;
 
 public partial class FrontPageViewModel : ObservableObject
 {
     [ObservableProperty]
-    private string pageTitle = "Add Todos";
+    private string pageTitle = "Kontakter:";
 
     [ObservableProperty]
-    private string todo = string.Empty;
+    private ObservableCollection<Contact> contacts = ContactService.Contacts();
 
-    [RelayCommand]
-    private void FrontPage()
-    {
-
-    }
+    [ObservableProperty]
+    private Contact selectedContact = null!;
 }

@@ -11,16 +11,15 @@ namespace WpfApp_MVVM.MVVM.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty]
-    private ObservableObject currentViewModel;
+    private ObservableObject currentViewModel = new FrontPageViewModel();
 
     [RelayCommand]
     private void GoToFrontPage() => CurrentViewModel = new FrontPageViewModel();
 
     [RelayCommand]
-    private void GoToTodos() => CurrentViewModel = new TodosViewModel();
+    private void GoToAddContactPage() => CurrentViewModel = new AddContactViewModel();
 
-    public MainViewModel()
-    {
-        CurrentViewModel = new FrontPageViewModel();
-    }
+    [RelayCommand]
+    private void GoToEditContactPage() => CurrentViewModel = new EditContactViewModel();
+
 }

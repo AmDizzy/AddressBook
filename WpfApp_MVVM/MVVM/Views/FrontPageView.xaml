@@ -4,26 +4,65 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp_MVVM.MVVM.Views"
+             xmlns:views="clr-namespace:WpfApp_MVVM.MVVM.Views"
              xmlns:models="clr-namespace:WpfApp_MVVM.Models"
              xmlns:viewmodels="clr-namespace:WpfApp_MVVM.MVVM.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:FrontPageViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <!-- LIST OF CONTACTS -->
-        <ListView Grid.Column="0" Name="lv_Contacts" Margin="0 0 30 0">
-            <ListView.ItemTemplate>
-                <DataTemplate DataType="models:Contact">
-                    <StackPanel Margin="0 5 0 5">
-                        <TextBlock FontWeight="Bold" Text="{Binding DisplayName}" />
-                        <TextBlock Text="{Binding Email}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <TextBlock Grid.Row="0" FontWeight="Bold" FontSize="20" Text="{Binding PageTitle}" Margin="0 0 0 10" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- LIST OF CONTACTS -->
+            <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Contacts}" Margin="0 0 30 0" Background="Transparent" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="models:Contact">
+                        <Grid Margin="0 5 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                                <TextBlock FontWeight="Bold" Text="{Binding DisplayName}" />
+                                <TextBlock Text="{Binding Email}" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Name="btn_Edit" Click="btn_Edit_Click" Content="&#xf4ff;" Style="{StaticResource navButton}" Width="45" Margin="5 0 0 0" />
+                                <Button Name="btn_Remove" Click="btn_Remove_Click" Content="&#xf1f8;" Style="{StaticResource navButton}" Width="45" Margin="5 0 0 0" />
+
+                                
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Column="1" Name="ContactDetails" Visibility="Visible">
+                <!--<TextBlock Text="Namn:" FontWeight="Bold" />-->
+                <TextBlock Text="{Binding SelectedContact.DisplayName}" Margin="0 0 0 10"/>
+
+                <!--<TextBlock Text="E-postadress:" FontWeight="Bold" />-->
+                <TextBlock Text="{Binding SelectedContact.Email}" Margin="0 0 0 10" />
+
+                <!--<TextBlock Text="Telefonnummer:" FontWeight="Bold" />-->
+                <TextBlock Text="{Binding SelectedContact.PhoneNumber}" Margin="0 0 0 10" />
+
+                <!--<TextBlock Text="Adress:" FontWeight="Bold" />-->
+                <TextBlock Text="{Binding SelectedContact.Address}" Margin="0 0 0 10" />
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </UserControl>

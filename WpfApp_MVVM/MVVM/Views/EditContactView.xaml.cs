@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApp_MVVM.MVVM.Views;
 
 /// <summary>
-/// Interaction logic for TodosView.xaml
+/// Interaction logic for EditContactView.xaml
 /// </summary>
-public partial class TodosView : UserControl
+public partial class EditContactView : UserControl
 {
-    public TodosView()
+    public EditContactView()
     {
         InitializeComponent();
     }

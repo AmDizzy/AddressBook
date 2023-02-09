@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace WpfApp_MVVM.MVVM.Models;
 
-class TodoModel
+internal class EditContactModel
 {
-    public string Text { get; set; } = string.Empty;
-    public DateTime Created { get; set; } = DateTime.Now;
 }

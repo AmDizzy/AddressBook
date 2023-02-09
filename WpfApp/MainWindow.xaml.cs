@@ -24,7 +24,7 @@ namespace WpfApp;
 
 public partial class MainWindow : Window
 {
-    //private ObservableCollection<Contact> contacts = new();
+    private ObservableCollection<Contact> contacts = new();
     //private readonly FileService file = new();
     public MainWindow()
     {

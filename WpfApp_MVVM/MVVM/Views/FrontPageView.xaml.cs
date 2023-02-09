@@ -16,33 +16,41 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp_MVVM.Interfaces;
 using WpfApp_MVVM.Models;
+using WpfApp_MVVM.MVVM.ViewModels;
 using WpfApp_MVVM.Services;
 
 namespace WpfApp_MVVM.MVVM.Views;
 
 public partial class FrontPageView : UserControl
 {
-    private ObservableCollection<Contact> contacts = new();
-    private readonly FileService file = new();
+    private ObservableCollection<Contact> contacts = ContactService.Contacts();
     public FrontPageView()
     {
         InitializeComponent();
-
-        file.FilePath = @$"{AppDomain.CurrentDomain.BaseDirectory}\content.json";
-
-        PopulateContactsList();
     }
 
-    private void PopulateContactsList()
+    private void btn_Edit_Click(object sender, RoutedEventArgs e)
     {
-        try
-        {
-            var items = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(file.Read());
-            if (items != null)
-                contacts = items;
-        }
-        catch { }
+        var button = (Button)sender;
+        var contact = (Contact)button.DataContext;
+    }
 
-        lv_Contacts.ItemsSource = contacts;
+    private void btn_Remove_Click(object sender, RoutedEventArgs e)
+    {
+        var button = (Button)sender;
+        var contact = (Contact)button.DataContext;
+
+        var result = MessageBox.Show("Är du säker på att du vill radera kontakten", "Radera Kontakten", MessageBoxButton.YesNo);
+
+        if (result == MessageBoxResult.Yes)
+        {
+            ContactService.Remove(contact);
+        }
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        var Button = (Button)sender;
+        var contact = (Contact)Button.DataContext;
     }
 }
