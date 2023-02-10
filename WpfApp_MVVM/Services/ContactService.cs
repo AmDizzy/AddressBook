@@ -15,6 +15,7 @@ public static class ContactService
         try
         {
             contacts = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(file.Read())!;
+            contacts.Clear();
         }
         catch { contacts = new ObservableCollection<Contact>(); }
     }
