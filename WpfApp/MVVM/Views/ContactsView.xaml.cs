@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,17 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp_MVVM.Interfaces;
-using WpfApp_MVVM.Models;
-using WpfApp_MVVM.MVVM.ViewModels;
-using WpfApp_MVVM.Services;
+using WpfApp.Models;
+using WpfApp.Services;
 
-namespace WpfApp_MVVM.MVVM.Views;
+namespace WpfApp.MVVM.Views;
 
-public partial class FrontPageView : UserControl
+/// <summary>
+/// Interaction logic for ContactsView.xaml
+/// </summary>
+public partial class ContactsView : UserControl
 {
-    private ObservableCollection<Contact> cotacts = ContactService.Contacts();
-    public FrontPageView()
+    private ObservableCollection<Contact> contacts = ContactService.Contacts();
+
+    public ContactsView()
     {
         InitializeComponent();
     }

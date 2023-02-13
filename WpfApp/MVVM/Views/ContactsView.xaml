@@ -1,27 +1,40 @@
-﻿<UserControl x:Class="WpfApp_MVVM.MVVM.Views.FrontPageView"
+﻿<UserControl x:Class="WpfApp.MVVM.Views.ContactsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApp_MVVM.MVVM.Views"
-             xmlns:models="clr-namespace:WpfApp_MVVM.Models"
-             xmlns:viewmodels="clr-namespace:WpfApp_MVVM.MVVM.ViewModels"
-             d:DataContext="{d:DesignInstance Type=viewmodels:FrontPageViewModel}"
+             xmlns:local="clr-namespace:WpfApp.MVVM.Views"
+             xmlns:models="clr-namespace:WpfApp.Models"
+             xmlns:viewmodels="clr-namespace:WpfApp.MVVM.ViewModels"
+             xmlns:components="clr-namespace:WpfApp.Components"
+             d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" FontWeight="Bold" FontSize="20" Text="{Binding PageTitle}" Margin="0 0 0 10" />
-        <Grid Grid.Row="1">
+        
+        <StackPanel Grid.Column="0" Margin="0">
+            <Button Command="{Binding }" Content="&#xf500;" Style="{StaticResource navButton}" HorizontalAlignment="Left" />
+            <Button Command="{Binding NavigateToAddCommand}" Content="&#xf234;" Style="{StaticResource navButton}" HorizontalAlignment="Left" />
+        </StackPanel>
+
+
+        <Grid Grid.Column="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
+            <TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" Text="Kontakter:" Margin="0 0 0 10" />
+
+
             <!-- LIST OF CONTACTS -->
             <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Contacts}" Margin="0 0 30 0" Background="Transparent" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
                 <ListView.ItemTemplate>
@@ -41,27 +54,27 @@
                                 <Button Name="btn_Edit" Click="btn_Edit_Click" Content="&#xf4ff;" Style="{StaticResource navButton}" Width="45" Margin="5 0 0 0" />
                                 <Button Name="btn_Remove" Click="btn_Remove_Click" Content="&#xf1f8;" Style="{StaticResource navButton}" Width="45" Margin="5 0 0 0" />
 
-                                
+
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <StackPanel Grid.Column="1" Name="ContactDetails" Visibility="Visible">
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
                 <!--<TextBlock Text="Namn:" FontWeight="Bold" />-->
                 <TextBlock Text="{Binding SelectedContact.DisplayName}" Margin="0 0 0 10"/>
 
                 <!--<TextBlock Text="E-postadress:" FontWeight="Bold" />-->
-                <TextBlock Text="{Binding SelectedContact.Email}" Margin="0 0 0 10" />
+                <TextBlock Text="{Binding SelectedContact.Email}" Margin="0 0 0 10"/>
 
                 <!--<TextBlock Text="Telefonnummer:" FontWeight="Bold" />-->
-                <TextBlock Text="{Binding SelectedContact.PhoneNumber}" Margin="0 0 0 10" />
+                <TextBlock Text="{Binding SelectedContact.PhoneNumber}" Margin="0 0 0 10"/>
 
                 <!--<TextBlock Text="Adress:" FontWeight="Bold" />-->
-                <TextBlock Text="{Binding SelectedContact.Address}" Margin="0 0 0 10" />
+                <TextBlock Text="{Binding SelectedContact.Address}" Margin="0 0 0 10"/>
             </StackPanel>
         </Grid>
-        
     </Grid>
 </UserControl>

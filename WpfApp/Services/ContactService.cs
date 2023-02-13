@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
-using WpfApp_MVVM.Models;
+using WpfApp.Models;
 
-namespace WpfApp_MVVM.Services;
+namespace WpfApp.Services;
 
-public static class ContactService
+internal class ContactService
 {
     private static ObservableCollection<Contact> contacts;
-    private static readonly FileService file = new FileService(@$"{AppDomain.CurrentDomain.BaseDirectory}\content.json");
+    private static readonly FileService file = new(@$"{AppDomain.CurrentDomain.BaseDirectory}\content.json");
 
     static ContactService()
     {
